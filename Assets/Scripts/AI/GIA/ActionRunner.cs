@@ -56,9 +56,9 @@ namespace TooLoo.AI
             OnFinishedAction?.Invoke();
         }
 
-        public void LoadAction(string id)
+        public void LoadAction(ActionLogic action)
         {
-            currentAction = ActionLogic.Get(id);
+            currentAction = action;
             currentAction?.Init(agent);
             OnLoadAction?.Invoke(currentAction.name);
         }

@@ -9,7 +9,7 @@ namespace TooLoo.AI
     public class BehaviorRunner : MonoBehaviour
     {
         private ActionRunner actionRunner;
-        private Queue<string> currentPlan;
+        private Queue<ActionLogic> currentPlan;
 
         public bool HasPlan => currentPlan != null;
         
@@ -47,7 +47,7 @@ namespace TooLoo.AI
             actionRunner.LoadAction(currentPlan.Dequeue());
         }
 
-        public void LoadPlan(Queue<string> plan)
+        public void LoadPlan(Queue<ActionLogic> plan)
         {
             currentPlan = plan;
             StartBehavior();

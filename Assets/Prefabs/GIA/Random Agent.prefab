@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca422b8f42d378c4089bd630c55cb3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decisionMaker: {fileID: 5872858286454545692}
+  decisionMaker: {fileID: 9211289921221060093}
   behaviorRunner: {fileID: 2688003648693086327}
   actionRunner: {fileID: 4854502730146758405}
   sensor: {fileID: 1993857427348155124}
@@ -192,16 +192,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6259110500650399169}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c4ccbb37bddc8f438cec44fe2a6fb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensor: {fileID: 0}
+  sensor: {fileID: 1993857427348155124}
   frequency: 1
   maxActions: 5
-  fleeAction: {fileID: 0}
-  actions: []
+  fleeAction: {fileID: 11400000, guid: b2bd0c35d4a3461488eaa201caff24ce, type: 2}
+  actions:
+  - {fileID: 11400000, guid: 353610dd9f379ec4382cb3f09de12928, type: 2}
+  - {fileID: 11400000, guid: fbe1fb838f809ae4cbf9a41a4ea3cb4f, type: 2}
+  - {fileID: 11400000, guid: 84188b52f9c6af54aaa3cc13e5f5f58b, type: 2}
+  - {fileID: 11400000, guid: 56fded4bfe6e54a4788bd44a1469d52b, type: 2}
+  - {fileID: 11400000, guid: dae9651116191d3419a7745ba4eef8c3, type: 2}
+  - {fileID: 11400000, guid: 3fcca17d4badabe41b20c03eca5879ce, type: 2}
 --- !u!114 &9211289921221060093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,10 +220,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d8955cf65a80446b3974135ed8af0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 10
-  sensor: {fileID: 0}
-  fleeAction: {fileID: 0}
-  actions: []
+  frequency: 1
+  sensor: {fileID: 1993857427348155124}
+  fleeAction: {fileID: 11400000, guid: b2bd0c35d4a3461488eaa201caff24ce, type: 2}
+  actions:
+  - {fileID: 11400000, guid: 353610dd9f379ec4382cb3f09de12928, type: 2}
+  - {fileID: 11400000, guid: fbe1fb838f809ae4cbf9a41a4ea3cb4f, type: 2}
+  - {fileID: 11400000, guid: 84188b52f9c6af54aaa3cc13e5f5f58b, type: 2}
+  - {fileID: 11400000, guid: 56fded4bfe6e54a4788bd44a1469d52b, type: 2}
+  - {fileID: 11400000, guid: dae9651116191d3419a7745ba4eef8c3, type: 2}
+  - {fileID: 11400000, guid: 3fcca17d4badabe41b20c03eca5879ce, type: 2}
 --- !u!114 &4854502730146758405
 MonoBehaviour:
   m_ObjectHideFlags: 0

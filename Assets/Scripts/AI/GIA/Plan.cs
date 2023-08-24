@@ -9,50 +9,50 @@ namespace TooLoo.AI
 {
     public class Plan : IEquatable<Plan>
     {
-        private readonly List<string> actionIds = new();
+        private readonly List<ActionLogic> actions = new();
 
-        public List<string> ActionIds => actionIds;
+        public List<ActionLogic> Actions => actions;
 
-        public Plan(ICollection<string> actionIds)
+        public Plan(ICollection<ActionLogic> actions)
         {
-            this.actionIds.AddRange(actionIds);
+            this.actions.AddRange(actions);
         }
 
-        public Plan(string actionId)
+        public Plan(ActionLogic a)
         {
-            this.actionIds.Add(actionId);
+            this.actions.Add(a);
         }
 
-        public Queue<string> ActionQueue()
+        public Queue<ActionLogic> ActionQueue()
         {
-            return new Queue<string>(actionIds);
+            return new Queue<ActionLogic>(actions);
         }
 
         public string ActionSequence()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (string id in actionIds)
+            foreach (ActionLogic a in actions)
             {
-                sb.Append($" --> {ActionLogic.Get(id).name}");
+                sb.Append($" --> {a.name}");
             }
 
             return sb.ToString();
         }
 
-        public bool Contains(string id)
+        public bool Contains(ActionLogic a)
         {
-            return actionIds.Contains(id);
+            return actions.Contains(a);
         }
 
         public bool Equals(Plan other)
         {
             if (other == null) return false;
 
-            if (actionIds.Count != other.actionIds.Count) return false;
+            if (actions.Count != other.actions.Count) return false;
 
-            for (int i = 0; i < actionIds.Count; i++)
+            for (int i = 0; i < actions.Count; i++)
             {
-                if (actionIds[i] != other.ActionIds[i]) return false;
+                if (actions[i] != other.Actions[i]) return false;
             }
 
             return true;
@@ -65,7 +65,7 @@ namespace TooLoo.AI
 
         public override int GetHashCode()
         {
-            return actionIds.Select(s => s.GetHashCode()).Aggregate(0, (acc, val) => acc ^ val);
+            return actions.Select(s => s.GetHashCode()).Aggregate(0, (acc, val) => acc ^ val);
         }
 
         public static bool operator ==(Plan left, Plan right)

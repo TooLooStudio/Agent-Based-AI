@@ -20,7 +20,7 @@ namespace TooLoo.AI.Examples
 
         private void Start()
         {
-            fleePlan = new(fleeAction.UID);
+            fleePlan = new(fleeAction);
 
             sensor.OnDetectedTargets += OnDetectedTargets;
 
@@ -63,7 +63,7 @@ namespace TooLoo.AI.Examples
 
         private void SelectSingleAction()
         {
-            currentPlan = new(actions[Random.Range(0, actions.Count)].UID);
+            currentPlan = new(actions[Random.Range(0, actions.Count)]);
 
             Debug.Log($"Current Behavior: {currentPlan.ActionSequence()}");
             behaviorRunner.LoadPlan(currentPlan.ActionQueue());

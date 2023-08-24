@@ -23,7 +23,7 @@ namespace TooLoo.AI.Examples
 
         private void Start()
         {
-            fleePlan = new(fleeAction.UID);
+            fleePlan = new(fleeAction);
             sensor.OnDetectedTargets += OnDetectedTargets;
 
             StartCoroutine(Run(frequency));
@@ -68,12 +68,12 @@ namespace TooLoo.AI.Examples
             if (actions is null || actions.Count == 0) return;            
 
             System.Random rnd = new();
-            List<string> selectedActions = new();
+            List<ActionLogic> selectedActions = new();
             
             for (int i = 0; i < maxActions; i++)
             {
                 int randIndex = rnd.Next(actions.Count);
-                selectedActions.Add(actions[randIndex].UID);
+                selectedActions.Add(actions[randIndex]);
             }
 
             currentPlan = new Plan(selectedActions);

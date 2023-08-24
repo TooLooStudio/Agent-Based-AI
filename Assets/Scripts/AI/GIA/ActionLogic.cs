@@ -4,45 +4,8 @@ using UnityEngine;
 
 namespace TooLoo.AI
 {
-    public abstract class ActionLogic : Data
+    public abstract class ActionLogic : ScriptableObject
     {
-        protected static List<ActionLogic> actions = new();
-
-        public static void Load(string folder = "")
-        {
-            actions.Clear();
-            actions.AddRange(Resources.LoadAll<ActionLogic>(folder));
-        }
-
-        public static ActionLogic Get(string uid)
-        {
-            foreach (ActionLogic a in actions)
-            {
-                if (a.UID == uid)
-                {
-                    return a;
-                }
-            }
-
-            Debug.LogError($"No GoapAction with Id {uid} exists.");
-            return null;
-        }
-
-        public static List<string> GetAllIds()
-        {
-            HashSet<string> uids = new();
-            foreach (ActionLogic a in actions)
-            {
-                uids.Add(a.UID);
-            }
-            return new List<string>(uids);
-        }
-
-        public static List<ActionLogic> GetAll()
-        {
-            return actions;
-        }
-
         public abstract void Init(AIAgent agent);
         public abstract void StartAction(AIAgent agent);
         public abstract void StopAction(AIAgent agent);
